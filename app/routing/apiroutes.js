@@ -1,10 +1,11 @@
 var express = require("express");
 var path = require("path");
 var app = express();
-// will return the entire friends array
-
+// will return the entire friends arr
+var friends = require("../data/friends.js");
 module.exports = function (app) {
     app.get("/api/friends", function (req, res) {
+       
         return res.json(friends);
     });
     

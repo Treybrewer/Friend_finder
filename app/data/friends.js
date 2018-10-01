@@ -1,3 +1,4 @@
+
 var friends = [
     {
         routeName: "",
@@ -70,3 +71,5 @@ var friends = [
         image: ""
     },
 ];
+
+module.exports = friends;
