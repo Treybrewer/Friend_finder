@@ -7,9 +7,10 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Friend Finder!</title>
     <!-- bootstrap cdn -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
-        crossorigin="anonymous">
-    <!-- / -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="https://code.jquery.com/jquery.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
 </head>
 
 <body>
@@ -26,18 +27,22 @@
 
         <input type="text" id="name" class="form-control" required="">
 
+        <h4>Age (Required)</h4>
+
+        <input type="text" id="age" class="form-control" required="">
+
         <h4>Link to Photo Image (Required)</h4>
 
         <input type="text" id="photo" class="form-control" required="">
 
+        <h4>Bio (Required)</h4>
+
+        <textarea class="form-control" id="bio" rows="3"></textarea>
+
         <hr>
 
-        <h4>Do you agree or disagree with the following statements? 
-            5 = Strongly agree
-            4 = Somewhat agree
-            3 = Neither agree nor disagree
-            2 = Somewhat disagree
-            1 = Strongly disagree
+        <h4>Do you agree or disagree with the following statements?
+            <br> 5 = Strongly agree 4 = Somewhat agree 3 = Neither agree nor disagree 2 = Somewhat disagree 1 = Strongly disagree
         </h4>
         <!-- question1 -->
         <h3>
@@ -223,7 +228,7 @@
             <i class="fa fa-check-circle" aria-hidden="true"></i>
             Submit</button>
 
-            <hr>
+        <hr>
 
         <p>
             <a href="/api/friends">API Friends List</a> |
@@ -232,14 +237,23 @@
 
 
     </div>
-    <!-- bootstrap js -->
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
-        crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
-        crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
-        crossorigin="anonymous"></script>
-    <!-- / -->
+    <!-- submit button logic -->
+    <script type="text/javascript">
+        $("#submit").on("click", function (event) {
+            event.preventDefault();
+            var newFriend = {
+                name: $("#name").val().trim(),
+                age: $("#age").val().trim(),
+                image: $("#photo").val().trim(),
+                bio: $("#bio").val().trim()
+            };
+
+            $.post("/api/friends", newFriend)
+                .then(function (data) {
+                    console.log("add.html", data);
+                });
+        });
+    </script>
 </body>
 
 </html>
