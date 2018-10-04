@@ -52,7 +52,7 @@
         <h4>You value strength above all else.</h4>
 
         <div class="form-group col-md-4">
-            <select id="inputState" class="form-control">
+            <select id="inputState1" class="form-control">
                 <option selected>Select an option</option>
                 <option>5</option>
                 <option>4</option>
@@ -70,7 +70,7 @@
         <h4>You find yourself wishing you could fight terrorists.</h4>
 
         <div class="form-group col-md-4">
-            <select id="inputState" class="form-control">
+            <select id="inputState2" class="form-control">
                 <option selected>Select an option</option>
                 <option>5</option>
                 <option>4</option>
@@ -88,7 +88,7 @@
         <h4>Tobacco is breakfast.</h4>
 
         <div class="form-group col-md-4">
-            <select id="inputState" class="form-control">
+            <select id="inputState3" class="form-control">
                 <option selected>Select an option</option>
                 <option>5</option>
                 <option>4</option>
@@ -106,7 +106,7 @@
         <h4>'Merica.</h4>
 
         <div class="form-group col-md-4">
-            <select id="inputState" class="form-control">
+            <select id="inputState4" class="form-control">
                 <option selected>Select an option</option>
                 <option>5</option>
                 <option>4</option>
@@ -124,7 +124,7 @@
         <h4>You shave you beard but, it grows back in full the next day.</h4>
 
         <div class="form-group col-md-4">
-            <select id="inputState" class="form-control">
+            <select id="inputState5" class="form-control">
                 <option selected>Select an option</option>
                 <option>5</option>
                 <option>4</option>
@@ -142,7 +142,7 @@
         <h4>Everyday I find myself in the gym.</h4>
 
         <div class="form-group col-md-4">
-            <select id="inputState" class="form-control">
+            <select id="inputState6" class="form-control">
                 <option selected>Select an option</option>
                 <option>5</option>
                 <option>4</option>
@@ -160,7 +160,7 @@
         <h4>You handle your disputes with others with massive gun battles.</h4>
 
         <div class="form-group col-md-4">
-            <select id="inputState" class="form-control">
+            <select id="inputState7" class="form-control">
                 <option selected>Select an option</option>
                 <option>5</option>
                 <option>4</option>
@@ -178,7 +178,7 @@
         <h4>When in doubt, blow it up.</h4>
 
         <div class="form-group col-md-4">
-            <select id="inputState" class="form-control">
+            <select id="inputState8" class="form-control">
                 <option selected>Select an option</option>
                 <option>5</option>
                 <option>4</option>
@@ -196,7 +196,7 @@
         <h4>Failure is not an option.</h4>
 
         <div class="form-group col-md-4">
-            <select id="inputState" class="form-control">
+            <select id="inputState9" class="form-control">
                 <option selected>Select an option</option>
                 <option>5</option>
                 <option>4</option>
@@ -214,7 +214,7 @@
         <h4>No man left behind.</h4>
 
         <div class="form-group col-md-4">
-            <select id="inputState" class="form-control">
+            <select id="inputState10" class="form-control">
                 <option selected>Select an option</option>
                 <option>5</option>
                 <option>4</option>
@@ -240,12 +240,39 @@
     <!-- submit button logic -->
     <script type="text/javascript">
         $("#submit").on("click", function (event) {
+            
             event.preventDefault();
+            answers = [];
+            var input1 = $("#inputState1").val().trim();
+            answers.push(input1);
+            console.log(answers);
+            // newFriend.answers.push(input1);
+            // var input2 = $("#inputState2").val().trim();
+            // newFriend.answers.push(input2);
+            // var input3 = $("#inputState3").val().trim();
+            // newFriend.answers.push(input3);
+            // var input4 = $("#inputState4").val().trim();
+            // newFriend.answers.push(input4);
+            // var input5 = $("#inputState5").val().trim();
+            // newFriend.answers.push(input5);
+            // var input6 = $("#inputState6").val().trim();
+            // newFriend.answers.push(input6);
+            // var input7 = $("#inputState7").val().trim();
+            // newFriend.answers.push(input7);
+            // var input8 = $("#inputState8").val().trim();
+            // newFriend.answers.push(input8);
+            // var input9 = $("#inputState9").val().trim();
+            // newFriend.answers.push(input9);
+            // var input10 = $("#inputState10").val().trim();
+            // newFriend.answers.push(input10);
+
             var newFriend = {
                 name: $("#name").val().trim(),
                 age: $("#age").val().trim(),
                 image: $("#photo").val().trim(),
-                bio: $("#bio").val().trim()
+                bio: $("#bio").val().trim(),
+                answer: parseInt(answers)
+                
             };
 
             $.post("/api/friends", newFriend)
