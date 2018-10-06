@@ -245,7 +245,10 @@
             answers = [];
             var input1 = $("#inputState1").val().trim();
             answers.push(input1);
-            console.log(answers);
+            for (var i = 0; i < answers.length; i++) {
+                parseInt(answers[i]);
+            }
+            // console.log(parseInt(answers));
             // newFriend.answers.push(input1);
             // var input2 = $("#inputState2").val().trim();
             // newFriend.answers.push(input2);
@@ -271,7 +274,7 @@
                 age: $("#age").val().trim(),
                 image: $("#photo").val().trim(),
                 bio: $("#bio").val().trim(),
-                answer: parseInt(answers)
+                answer: answers
                 
             };
 
