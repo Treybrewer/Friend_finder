@@ -1,11 +1,14 @@
 
 var friends = [
+    
     {
+        
         routeName: "chuck",
         name: "Chuck Norris",
         age: 78,
         bio: "The show Survivor had the original premise of putting people on an island with Chuck Norris. There were no survivors, and nobody is brave enough to go to the island to retrieve the footage.",
-        image: "https://i.kym-cdn.com/photos/images/original/001/345/499/0f6.jpg"
+        image: "https://i.kym-cdn.com/photos/images/original/001/345/499/0f6.jpg",
+        answer: [5,5,5,5,5,5,5,5,5,5,]
     },
     {
         routeName: "arnold",
