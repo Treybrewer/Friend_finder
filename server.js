@@ -28,41 +28,52 @@ app.post("/api/friends", function (req, res) {
     var newArray = [];
     var subtractionArray = [];
     res.json(newFriend);
+
     for (var i = 0; i < 10; i++) {
-
         newArray.push(parseInt(newFriend.answer[i]));
-        if (newArray.length > 0) {
-            subtract();
-        }
-
-    }
-    function subtract() {
-        var result = newArray[i] - friends[0].answer[i];
-        subtractionArray.push(Math.abs(result));
-        if (subtractionArray.length === 10) {
-            var subtractResult = subtractionArray[0] + subtractionArray[1] + subtractionArray[2] + subtractionArray[3] + subtractionArray[4] + subtractionArray[5] + subtractionArray[6] + subtractionArray[7] + subtractionArray[8] + subtractionArray[9];
-            console.log(`
-            *************** New Friend Array ******************\n
-                            name: ${newFriend.name}\n
-                            age: ${newFriend.age}\n
-                            imageURL: ${newFriend.image}\n
-                            bio: ${newFriend.bio}\n
-                            routeName: ${newFriend.routeName}\n
-            **************************************************\n
-            *************** ${newFriend.name} Answer Array *******************\n
-                            ${newArray}\n
-            **************************************************\n
-            *************** Chucks Array ***********************\n
-                            ${friends[0].answer}\n
-            **************************************************\n
-            *************** Answer Array - Chucks Array ********\n
-                            ${subtractionArray}\n
-            **************************************************\n
-            *************** Result *****************************\n
-                            ${subtractResult}\n
-            **************************************************`);
-        };
     };
+    
+    function Subtract(index, name) {
+        this.index = index;
+        this.name = name;
+        this.run = function() {
+            for(var i = 0; i < 10; i++) {
+                var operation = newArray[i] - this.index.answer[i];
+                subtractionArray.push(Math.abs(operation));
+                if (subtractionArray.length === 10) {
+                    var subtractResult = subtractionArray[0] + subtractionArray[1] + subtractionArray[2] + subtractionArray[3] + subtractionArray[4] + subtractionArray[5] + subtractionArray[6] + subtractionArray[7] + subtractionArray[8] + subtractionArray[9];
+                    console.log(`
+                    *************** New Friend Array ******************\n
+                                    name: ${newFriend.name}\n
+                                    age: ${newFriend.age}\n
+                                    imageURL: ${newFriend.image}\n
+                                    bio: ${newFriend.bio}\n
+                                    routeName: ${newFriend.routeName}\n
+                    **************************************************\n
+                    *************** ${newFriend.name} Answer Array *******************\n
+                                    ${newArray}\n
+                    **************************************************\n
+                    *************** ${this.name} Array ***********************\n
+                                    ${this.index.answer}\n
+                    **************************************************\n
+                    *************** Answer Array - ${this.name} Array ********\n
+                                    ${subtractionArray}\n
+                    **************************************************\n
+                    *************** ${newFriend.name} and ${this.name} Differences *******\n
+                                    ${subtractResult}\n
+                    **************************************************`);
+                };
+            };
+        };
+        
+      
+       
+    };
+
+    var chuck = new Subtract(friends[0], "Chuck");
+    chuck.run();
+    var arnold = new Subtract(friends[1], "Arnold");
+    arnold.run();
 
 });
 
