@@ -16,7 +16,7 @@ require('./app/routing/apiRoutes.js')(app);
 require('./app/routing/htmlRoutes.js')(app);
 
 var friends = require("./app/data/friends.js");
-
+var finalMatch = require("./app/data/matched");
 app.post("/api/friends", function (req, res) {
 
     var newFriend = req.body;
@@ -125,13 +125,24 @@ app.post("/api/friends", function (req, res) {
     console.log(match);
     var matchIndex = finalResult.indexOf(match);
     console.log(matchIndex);
+    
 
+    var matchedFriend = {
+        RouteName: friends[matchIndex].routeName,
+        Name: friends[matchIndex].name,
+        Age: friends[matchIndex].age,
+        Bio: friends[matchIndex].bio,
+        Image: friends[matchIndex].image
 
+    };
 
-
-
+    console.log(matchedFriend);
+    finalMatch.push(matchedFriend);
+    console.log(finalMatch);
 
 });
+
+
 
 
 app.listen(PORT, function () {

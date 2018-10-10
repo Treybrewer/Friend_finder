@@ -1,3 +1,5 @@
+var matchedFriend = require("../../server.js");
+matchedFriend;
 
 var friends = [
     
@@ -62,7 +64,7 @@ var friends = [
         routeName: "mel",
         name: "Mel Gibson",
         age: 62,
-        bio: "If you're going to wear three hats, you'd better grow two more heads.",
+        bio: "If youre going to wear three hats, youd better grow two more heads.",
         iamge: "https://short-biography.com/wp-content/uploads/mel-gibson/Mel-Gibson.jpg",
         answer: [3,2,1,3,2,1,3,2,1,2]
     },
@@ -83,5 +85,7 @@ var friends = [
         answer: [3,3,2,1,4,5,3,2,1,5]
     },
 ];
+
+
 
 module.exports = friends;

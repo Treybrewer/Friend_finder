@@ -13,7 +13,7 @@ $("#submit").on("click", function (event) {
     var input10 = $("#inputState10").val().trim();
     var input = [input1, input2, input3, input4, input5, input6, input7, input8, input9, input10]
     answers = [];
-// validation for the form
+    // validation for the form
     for (var i = 0; i < 10; i++) {
         if (input[i] === "Select an option") {
             alert("Please fill out the rest of the form!");
@@ -27,7 +27,7 @@ $("#submit").on("click", function (event) {
     if (answers.length === 10) {
         post();
     };
-    
+
 
     function post() {
         var newFriend = {
@@ -41,7 +41,23 @@ $("#submit").on("click", function (event) {
         $.post("/api/friends", newFriend)
             .then(function (data) {
                 console.log("add.html", data);
+
             });
+
     };
 
+    $(".modal").show();
+
+});
+
+
+$(".close").on("click", function (event) {
+    returnFunc();
+    $(".modal").hide();
+    function returnFunc() {
+        $.get("/api/matchedFriend", function (finalMatch) {
+            console.log(finalMatch);
+            console.log("fired");
+        });
+    };
 });

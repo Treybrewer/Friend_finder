@@ -3,6 +3,11 @@ var path = require("path");
 var app = express();
 // will return the entire friends arr
 var friends = require("../data/friends.js");
+
+// will return matched friend
+var matchedFriend = require("../../server.js");
+
+
 module.exports = function (app) {
     app.get("/api/friends", function (req, res) {
        
@@ -22,5 +27,8 @@ module.exports = function (app) {
         }
     
         return res.json(false);
+    });
+    app.get("/api/matchedFriend/", function (req, res) {
+        return res.json(finalMatch);
     });
 };
