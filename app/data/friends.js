@@ -1,5 +1,4 @@
-var matchedFriend = require("../../server.js");
-matchedFriend;
+
 
 var friends = [
     
@@ -65,7 +64,7 @@ var friends = [
         name: "Mel Gibson",
         age: 62,
         bio: "If youre going to wear three hats, youd better grow two more heads.",
-        iamge: "https://short-biography.com/wp-content/uploads/mel-gibson/Mel-Gibson.jpg",
+        image: "http://cdn1us.denofgeek.com/sites/denofgeekus/files/2016/05/mel-gibson.jpg",
         answer: [3,2,1,3,2,1,3,2,1,2]
     },
     {

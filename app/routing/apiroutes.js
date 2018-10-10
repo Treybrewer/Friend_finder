@@ -5,7 +5,7 @@ var app = express();
 var friends = require("../data/friends.js");
 
 // will return matched friend
-var matchedFriend = require("../../server.js");
+var finalMatch = require("../data/matched.js");
 
 
 module.exports = function (app) {
@@ -28,7 +28,8 @@ module.exports = function (app) {
     
         return res.json(false);
     });
-    app.get("/api/matchedFriend/", function (req, res) {
+    app.get("/api/finalMatch", function (req, res) {
         return res.json(finalMatch);
+        
     });
 };

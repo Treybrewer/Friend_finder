@@ -1,8 +1,8 @@
 
 
 
-var finalMatch = {
-
-};
+var finalMatch = [
+    
+];
 
 module.exports = finalMatch;

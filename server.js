@@ -17,8 +17,11 @@ require('./app/routing/htmlRoutes.js')(app);
 
 var friends = require("./app/data/friends.js");
 var finalMatch = require("./app/data/matched");
-app.post("/api/friends", function (req, res) {
 
+
+app.post("/api/friends", function (req, res) {
+    
+    finalMatch.splice(0,1);
     var newFriend = req.body;
 
     newFriend.routeName = newFriend.name.replace(/\s+/g, "").toLowerCase();
@@ -29,7 +32,7 @@ app.post("/api/friends", function (req, res) {
     var subtractionArray = [];
     var finalResult = [];
     res.json(newFriend);
-
+    
     for (var i = 0; i < 10; i++) {
         newArray.push(parseInt(newFriend.answer[i]));
     };
@@ -125,7 +128,7 @@ app.post("/api/friends", function (req, res) {
     console.log(match);
     var matchIndex = finalResult.indexOf(match);
     console.log(matchIndex);
-    
+
 
     var matchedFriend = {
         RouteName: friends[matchIndex].routeName,
@@ -139,8 +142,15 @@ app.post("/api/friends", function (req, res) {
     console.log(matchedFriend);
     finalMatch.push(matchedFriend);
     console.log(finalMatch);
-
+    
 });
+
+friends.splice(10,1);
+
+function clear() {
+    
+    
+};
 
 
 
