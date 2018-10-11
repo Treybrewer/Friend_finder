@@ -3,7 +3,7 @@ $("#submit").on("click", function (event) {
 
     event.preventDefault();
 
-    if ($(".form-control").val() === "" || "Select an option") {
+    if ($(".form-control").val() === "") {
         alert("Please fill out the rest of the form!");
         return;
     };
