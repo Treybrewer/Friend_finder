@@ -11,8 +11,8 @@ app.use(express.static("app/public"));
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
-require('./app/routing/apiRoutes.js')(app);
-require('./app/routing/htmlRoutes.js')(app);
+require('./app/routing/apiroutes.js')(app);
+require('./app/routing/htmlroutes.js')(app);
 
 var friends = require("./app/data/friends.js");
 var finalMatch = require("./app/data/matched");
