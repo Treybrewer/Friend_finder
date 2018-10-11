@@ -1,0 +1,28 @@
+{
+  "name": "Friend_finder",
+  "version": "1.0.0",
+  "description": "an app that match friends together by an algorithm.  Built with node and express, deployed on heroku.",
+  "main": "server.js",
+  "dependencies": {
+    "body-parser": "^1.18.3",
+    "express": "^4.16.3",
+    "mysql": "^2.16.0",
+    "path": "^0.12.7"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Treybrewer/Friend_finder.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Treybrewer/Friend_finder/issues"
+  },
+  "homepage": "https://github.com/Treybrewer/Friend_finder#readme"
+}
