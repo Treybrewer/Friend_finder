@@ -4,7 +4,6 @@ var app = express();
 // will return the entire friends arr
 var friends = require("../data/friends.js");
 
-// will return matched friend
 var finalMatch = require("../data/matched.js");
 
 
@@ -25,11 +24,9 @@ module.exports = function (app) {
                 return res.json(friends[i]);
             }
         }
-    
         return res.json(false);
     });
     app.get("/api/finalMatch", function (req, res) {
         return res.json(finalMatch);
-        
     });
 };

@@ -1,5 +1,7 @@
 var express = require("express");
+
 var bodyParser = require("body-parser");
+
 var path = require("path");
 
 var app = express();
@@ -21,6 +23,7 @@ var finalMatch = require("./app/data/matched");
 app.post("/api/friends", function (req, res) {
     
     finalMatch.splice(0,1);
+
     var newFriend = req.body;
 
     newFriend.routeName = newFriend.name.replace(/\s+/g, "").toLowerCase();
@@ -30,6 +33,7 @@ app.post("/api/friends", function (req, res) {
     var newArray = [];
     var subtractionArray = [];
     var finalResult = [];
+    
     res.json(newFriend);
     
     for (var i = 0; i < 10; i++) {
@@ -41,13 +45,20 @@ app.post("/api/friends", function (req, res) {
         this.index = index;
         this.name = name;
         this.run = function () {
-            for (var i = 0; i < 10; i++) {
+
+            for (var i = 0; i < 10; i++) 
+            
+            {
                 var operation = newArray[i] - this.index.answer[i];
 
                 subtractionArray.push(Math.abs(operation));
-                if (subtractionArray.length === 10) {
+
+                if (subtractionArray.length === 10)
+                 {
                     var subtractResult = subtractionArray[0] + subtractionArray[1] + subtractionArray[2] + subtractionArray[3] + subtractionArray[4] + subtractionArray[5] + subtractionArray[6] + subtractionArray[7] + subtractionArray[8] + subtractionArray[9];
+
                     finalResult.push(subtractResult);
+
                     console.log(`
                     *************** New Friend Array ******************\n
                                     name: ${newFriend.name}\n
@@ -68,6 +79,7 @@ app.post("/api/friends", function (req, res) {
                     *************** ${newFriend.name} and ${this.name} Differences *******\n
                                     ${subtractResult}\n
                     **************************************************`);
+
                     subtractionArray = [];
 
                 };
@@ -76,9 +88,8 @@ app.post("/api/friends", function (req, res) {
 
         };
 
-
-
     };
+
     switch (finalResult.length) {
         case 0:
             var chuck = new Subtract(friends[0], "Chuck");
@@ -122,12 +133,10 @@ app.post("/api/friends", function (req, res) {
 
 
     };
-    console.log(finalResult);
-    var match = Math.min(...finalResult);
-    console.log(match);
-    var matchIndex = finalResult.indexOf(match);
-    console.log(matchIndex);
 
+    var match = Math.min(...finalResult);
+
+    var matchIndex = finalResult.indexOf(match);
 
     var matchedFriend = {
         RouteName: friends[matchIndex].routeName,
@@ -138,23 +147,12 @@ app.post("/api/friends", function (req, res) {
 
     };
 
-    console.log(matchedFriend);
     finalMatch.push(matchedFriend);
-    console.log(finalMatch);
     
 });
 
 friends.splice(10,1);
 
-function clear() {
-    
-    
-};
-
-
-
-
 app.listen(PORT, function () {
-
     console.log("Server listening on: http://localhost:" + PORT);
 });

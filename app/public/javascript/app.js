@@ -7,7 +7,7 @@ $("#submit").on("click", function (event) {
         alert("Please fill out the rest of the form!");
         return;
     };
-    
+
     var input1 = $("#inputState1").val().trim();
     var input2 = $("#inputState2").val().trim();
     var input3 = $("#inputState3").val().trim();
@@ -18,9 +18,11 @@ $("#submit").on("click", function (event) {
     var input8 = $("#inputState8").val().trim();
     var input9 = $("#inputState9").val().trim();
     var input10 = $("#inputState10").val().trim();
-    var input = [input1, input2, input3, input4, input5, input6, input7, input8, input9, input10]
+
+    var input = [input1, input2, input3, input4, input5, input6, input7, input8, input9, input10];
+
     answers = [];
-    // validation for the form
+
     for (var i = 0; i < 10; i++) {
         if (input[i] === "Select an option") {
             alert("Please fill out the rest of the form!");
@@ -35,7 +37,6 @@ $("#submit").on("click", function (event) {
     if (answers.length === 10) {
         post();
     };
-
 
     function post() {
         var newFriend = {
@@ -57,8 +58,6 @@ $("#submit").on("click", function (event) {
 
     function returnFunc() {
         $.get("/api/finalMatch", function (finalMatch) {
-            console.log(finalMatch);
-            console.log(finalMatch[0].Name);
             var div = $("<div class='info'>");
             var p = $("<p>");
             p.text("Name:  " + finalMatch[0].Name);
@@ -78,9 +77,10 @@ $("#submit").on("click", function (event) {
     returnFunc();
 });
 
-
 $(".close").on("click", function (event) {
+
     $(".modal").hide();
+
     $("#name").val("");
     $("#age").val("");
     $("#photo").val("");
@@ -95,6 +95,7 @@ $(".close").on("click", function (event) {
     $("#inputState8").val("");
     $("#inputState9").val("");
     $("#inputState10").val("");
+    
     $(".info").detach();
 
 });
